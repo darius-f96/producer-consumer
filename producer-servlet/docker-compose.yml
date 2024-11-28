@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  producer:
+    build:
+      context: ./producer
+    container_name: producer
+    environment:
+      KAFKA_BOOTSTRAP_SERVERS: kafka:9092
+    ports:
+      - "8081:8080"
+    networks:
+      - shared_kafka_network
+networks:
+  shared_kafka_network:
+    external: true
+    name: "poc-alegeri-network"
