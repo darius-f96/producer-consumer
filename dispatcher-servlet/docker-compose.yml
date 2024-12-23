@@ -1,0 +1,6 @@
+services:
+  wildfly:
+    build: .
+    container_name: dispatcher
+    ports:
+      - "8085:8080"

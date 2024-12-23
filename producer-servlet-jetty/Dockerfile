@@ -3,9 +3,12 @@ WORKDIR /app
 COPY . .
 RUN mvn clean package
 
-FROM jetty:9.4.56-jdk21-amazoncorretto
+FROM jetty
 
 WORKDIR /var/lib/jetty
 #RUN java -jar /usr/local/jetty/start.jar --add-to-start=pid,state
-COPY --from=builder /app/target/producer-app.war /var/lib/jetty/webapps/ROOT.war
-EXPOSE 8084
+COPY --from=builder /app/target/producer-app.war /var/lib/jetty/webapps/root.war
+
+RUN java -jar "$JETTY_HOME/start.jar" --add-modules=ee10-webapp,ee10-deploy,ee10-jsp,ee10-jstl,ee10-websocket-jetty,ee10-websocket-jakarta
+
+EXPOSE 8080

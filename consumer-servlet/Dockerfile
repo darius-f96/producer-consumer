@@ -5,4 +5,4 @@ RUN mvn clean package
 
 FROM tomcat:jdk21-openjdk
 COPY --from=builder /app/target/consumer-app.war /usr/local/tomcat/webapps/
-EXPOSE 8082
+EXPOSE 8080
