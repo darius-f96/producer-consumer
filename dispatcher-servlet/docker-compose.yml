@@ -4,3 +4,11 @@ services:
     container_name: dispatcher
     ports:
       - "8085:8080"
+      - "8086:9990"
+    networks:
+      - shared_kafka_network
+
+networks:
+  shared_kafka_network:
+    external: true
+    name: "poc-alegeri-network"

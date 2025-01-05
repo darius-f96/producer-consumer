@@ -1,7 +1,6 @@
 services:
   producer:
-    build:
-      context: ./producer
+    build: .
     container_name: producer
     environment:
       KAFKA_BOOTSTRAP_SERVERS: kafka:9092

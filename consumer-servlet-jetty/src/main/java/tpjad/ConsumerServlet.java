@@ -1,4 +1,4 @@
-package tpjad;
+package main.java.tpjad;
 
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.WebServlet;
@@ -29,7 +29,15 @@ public class ConsumerServlet extends HttpServlet {
         props.put("auto.offset.reset", "earliest"); // Read messages from the beginning
 
         consumer = new KafkaConsumer<>(props);
-        consumer.subscribe(Collections.singletonList("alegeri-topic")); // Subscribe to topic
+        consumer.subscribe(Collections.singletonList("jetty-topic")); // Subscribe to topic
+    }
+
+    @Override
+    protected void doOptions(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        response.setHeader("Access-Control-Allow-Origin", "*");
+        response.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
+        response.setHeader("Access-Control-Allow-Headers", "Content-Type");
+        response.setStatus(HttpServletResponse.SC_OK);
     }
 
     @Override

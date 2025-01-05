@@ -21,9 +21,17 @@ public class ProducerServlet extends HttpServlet {
     }
 
     @Override
+    protected void doOptions(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        response.setHeader("Access-Control-Allow-Origin", "*");
+        response.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
+        response.setHeader("Access-Control-Allow-Headers", "Content-Type");
+        response.setStatus(HttpServletResponse.SC_OK);
+    }
+
+    @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-        String message = req.getParameter("message");
-        producer.send(new ProducerRecord<>("alegeri-topic", message));
+        String message = req.getParameter("msg");
+        producer.send(new ProducerRecord<>("jetty-topic", message));
         resp.getWriter().write("Message sent to Kafka: " + message);
     }
 
