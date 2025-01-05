@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import footerImage from './tpjad1.png';
 
 function DispatcherUI() {
   const [messagesConsumer1, setMessagesConsumer1] = useState('');
@@ -125,6 +126,7 @@ function DispatcherUI() {
         />
         <button onClick={sendToJettyProducer}>Send to Producer</button>
       </section>
+      <img src={footerImage} alt="Footer" />
     </div>
   );
 }
