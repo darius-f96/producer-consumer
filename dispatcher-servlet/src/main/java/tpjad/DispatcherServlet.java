@@ -26,10 +26,10 @@ public class DispatcherServlet extends HttpServlet {
     protected void doOptions(HttpServletRequest request, HttpServletResponse response)
             throws IOException {
         // Add CORS headers
-        response.setHeader("Access-Control-Allow-Origin", "http://localhost:3000"); // Frontend origin
-        response.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
+        response.setHeader("Access-Control-Allow-Origin", "*");
+        response.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, OPTIONS");
         response.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
-        response.setHeader("Access-Control-Allow-Credentials", "true"); // Optional: if credentials are needed
+        response.setHeader("Access-Control-Allow-Credentials", "true");
         response.setStatus(HttpServletResponse.SC_OK);
     }
 
