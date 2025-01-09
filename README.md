@@ -142,6 +142,8 @@ Docker is used to containerize the application components, making deployment sea
 
 ### Application Workflow
 
+![alt-text](https://github.com/darius-f96/tpjad-servlet/blob/main/dispatcher-ui/src/tpjad1.png)
+
 1. **Frontend Interaction:**
    - The Dispatcher UI is accessed at `http://localhost:8085/dispatcher-app`.
    - Users can:
